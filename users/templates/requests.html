@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}
+    مدیریت درخواست ها
+{% endblock title %}    
+
+{% block content %}
+  <div class="container-lg container-fluid">
+    <div class="p-3">
+        <table class="w-100">
+            <tr>
+                <td>نام</td>
+                <td>نام خانوادگی</td>
+                <td>شماره همراه</td>
+                <td>آدرس ایمیل</td>
+                <td></td>
+            </tr>
+            {% for profile in profiles %}
+                <tr>
+                    <td class="bordered">{{ profile.first_name }}</td>
+                    <td class="bordered">{{ profile.last_name }}</td>
+                    <td class="bordered">{{ profile.user.phone_number }}</td>
+                    <td class="bordered">{{ profile.email_address }}</td>
+                    <td class="bordered">
+                        <button class="btn btn-primary">
+                            مشاهده
+                        </button>
+                        <a href="{% url 'delete_user_url' profile.user.id %}" class="btn btn-danger">حذف</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+  </div>
+{% endblock content %}

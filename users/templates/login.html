@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}تایید شماره تلفن{% endblock title %}
+
+{% block content %}
+<div class="container-lg container-fluid">
+    <div class="p-5">
+        <div class="d-flex justify-content-center">
+            <form class="w-50" method='post'>
+                {% csrf_token %}
+                <input type="text" class="w-100 form-control my-3 text-center" name="phone_number" placeholder="شماره همراه خود را وارد کنید">
+                <input type="password" class="w-100 form-control my-3 text-center" name="password" placeholder="رمز عبور خود را وارد کنید">
+                <div class="d-grid gap-2 w-100">
+                    <button type="submit" class="btn btn-success mt-1 p-3">ورود به حساب کاربری</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

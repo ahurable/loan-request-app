@@ -1,0 +1,314 @@
+{% extends 'base.html' %}
+
+{% block title %}Home Page{% endblock title %}
+{% block style %}
+
+#e123 {
+    font-size: 32px;
+    font-weight: 900;
+}
+
+#e124 {
+    font-size: 40px;
+    font-weight: 900;
+}
+
+#banner-img {
+    width: 300px
+}
+
+.range-wrapper span {
+    position: relative;
+    top: 2rem;
+}
+
+@media screen and (min-width: 980px){
+    #banner-img {
+        width : 500px;
+    }
+}
+{% endblock style %}
+{% block content %}
+
+<div class="container-lg container-fluid" style="height: 90%;">
+    <div class="d-lg-flex justfy-content-lg-around">
+        <div class="col-lg-6 col-12 d-lg-flex" style="align-items: center;">
+            <div class="p-5 text-center">
+                <span id="e124">به فکر آینده باش.</span>
+                <br>
+                <span id="e123">درخواست وام فقط با چند کلیک ;)</span>
+            </div>
+        </div>
+        <div class="col-lg-6 col-12">
+            <div class="p-3 d-flex justify-content-center">
+                <img src="/media/site/Bedroom.svg" id="banner-img"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="w-100 atrr-container ">
+    <div class="container-lg">
+        <div class="py-5">
+            <div class="d-flex justify-content-around flex-wrap">
+                <div class="col-lg-4 col-12 my-sm-2 my-xs-2 my-md-2">
+                    <div class="py-2 text-center">
+                        <div class="text-center image-wrapper"><img src="/media/site/fa-solid_infinity.svg" width="144" alt="" srcset=""></div>
+                        <div class="text-center text-wrapper">
+                            <span style="font-size: 36px; font-weight: 900;">بدون محدودیت</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-12 my-sm-2 my-xs-2 my-md-2">
+                    <div class="py-2 text-center">
+                        <br>
+                        <div class="text-center image-wrapper"><img src="/media/site/Vector.svg" width="144" alt="" srcset=""></div>
+                        <br>
+                        <div class="text-center text-wrapper">
+                            <span style="font-size: 36px; font-weight: 900;">تمام مراحل مجازی</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-12 my-sm-2 my-xs-2 my-md-2">
+                    <div class="py-2 text-center">
+                        <div class="text-center image-wrapper"><img src="/media/site/uil_setting.svg" width="144" alt="" srcset=""></div>
+                        <div class="text-center text-wrapper">
+                            <span style="font-size: 36px; font-weight: 900;">بدون نیاز به ضامن</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-lg container-fluid mt-5">
+    <div class="p-5">
+        <div class="calculator-wrapper d-lg-flex justify-content-between w-100">
+            <div class="col-lg-6 col-12">
+                <div class="p-5 text-center">
+                    <form>
+                    <h2>ماجراجویی خودت رو آغاز کن</h2>
+                    <br>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary btn-lg" type="submit">ثبت درخواست وام</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-12">
+                <div class="p-5">
+                    <div>
+                        <h2>حساب کن</h2>
+                    </div>
+                    <div class="pt-2 range-wrapper">
+                            <input type="range" class="w-100" min="0" max="1000000" value="0" id="range_input" "/>
+                            <br>
+                            <span style="font-size: 23px" id="range_value">0</span><span style="font-size: 23px" class="mx-2">تومان</span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="mt-5 w-100">
+    <div class="container">
+        <div class="p-5">
+            <h1>چطور اعتباری خرید کنیم؟</h1>
+            <div class="d-lg-flex justify-content-center flex-wrap pt-5">
+                <div class="col-lg-6 col-12"  >
+                    <div class="p-2 d-flex">
+                        <div class="icon-wrapper-in">
+                            <img src="/media/site/e1.svg" width="73" />
+                            <img src="/media/site/mdi_paper-outline.svg" width="61" class="m-auto"/>
+                        </div>
+                        <div class="p-2">
+                            <span style="font-size: 23px; font-weight: 800;">ثبت نام و احراز هویت</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12">
+                    <div class="p-2 d-flex">
+                        <div class="icon-wrapper-in">
+                            <img src="/media/site/e1.svg" width="73" />
+                            <img src="/media/site/uil_wallet.svg" width="61" class="m-auto"/>
+                        </div>
+                        <div class="p-2">
+                            <span style="font-size: 23px; font-weight: 800;">اعتبارسنجی و بارگذاری مدارک</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12">
+                    <div class="p-2 d-flex">
+                        <div class="icon-wrapper-in">
+                            <img src="/media/site/e1.svg" width="73" />
+                            <img src="/media/site/ciornn.svg" width="61" class="m-auto"/>
+                        </div>
+                        <div class="p-2">
+                            <span style="font-size: 23px; font-weight: 800;">تحویل مدارک</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12">
+                    <div class="p-2 d-flex">
+                        <div class="icon-wrapper-in">
+                            <img src="/media/site/e1.svg" width="73" />
+                            <img src="/media/site/tdesign_shop.svg" width="61" class="m-auto"/>
+                        </div>
+                        <div class="p-2">
+                            <span style="font-size: 23px; font-weight: 800;">افزایش اعتبار و خرید</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-5 container-lg">
+    <div class="d-lg-flex">
+        <div class="col-lg-6 col-12 p-3">
+            <div class="box-wrapper p-5">
+                <div class="text-center mb-5">
+                    <h2>مدارک مورد نیاز</h2>
+                </div>
+                <div>
+                    <div class="d-flex" style="align-items: center;">
+                        <span style="width: max-content">
+                            <img src="/media/site/pdf-solid.svg" width="54" />
+                        </span>
+                        <span class="mx-2" style="font-size: 22px; font-weight: 700;">فایل صورت حساب</span>
+                    </div>
+                    <div class="my-2">
+                        میزان وامی که میتوانید دریافت کید تابعی از درآمد ها و هزینه های شماست.
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="d-flex" style="align-items: center;">
+                        <span style="width: max-content">
+                            <img src="/media/site/solid_disk.svg" width="54" />
+                        </span>
+                        <span class="mx-2" style="font-size: 22px; font-weight: 700;">فیش حقوقی یا پروانه کسب</span>
+                    </div>
+                    <div class="my-2">
+                        کارمندان، تصویر آخرین فیش حقوقی با مهر و امضا و کسبه، پروانه کسب.
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="d-flex" style="align-items: center;">
+                        <span style="width: max-content">
+                            <img src="/media/site/paper-fill.svg" width="54" />
+                        </span>
+                        <span class="mx-2" style="font-size: 22px; font-weight: 700;">یک برگ چک صیادی</span>
+                    </div>
+                    <div class="my-2">
+                        برای دریافت تسهیلات نیاز به یک برگه چک صیادی به نام خود خواهید داشت.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-12 p-3">
+            <div class="box-wrapper p-5">
+                <div class="text-center mb-5">
+                    <h2>مراحل دریافت اعتبار از ما</h2>
+                </div>
+                <div>
+                    <div class="d-flex" style="align-items: center;">
+                        <span style="width: max-content">
+                            <img src="/media/site/pdf-solid.svg" width="54" />
+                        </span>
+                        <span class="mx-2" style="font-size: 22px; font-weight: 700;">ثبت نام</span>
+                    </div>
+                    <div class="my-2">
+                        انتخاب مبلغ و شرایط بازپرداخت و ثبت نام و ورود اطلاعات
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="d-flex" style="align-items: center;">
+                        <span style="width: max-content">
+                            <img src="/media/site/solid_disk.svg" width="54" />
+                        </span>
+                        <span class="mx-2" style="font-size: 22px; font-weight: 700;">احراز هویت</span>
+                    </div>
+                    <div class="my-2">
+                        احراز هویت و اعتبارسنجی، بارگذاری تصویر چک و ثبت صیاد
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="d-flex" style="align-items: center;">
+                        <span style="width: max-content">
+                            <img src="/media/site/paper-fill.svg" width="54" />
+                        </span>
+                        <span class="mx-2" style="font-size: 22px; font-weight: 700;">دریافت اعتبار</span>
+                    </div>
+                    <div class="my-2">
+                        به همین سادگی پس از گذراندن سه مرحله اعتبار خود را دریافت کنید
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-lg container-fluid my-5 border bg-light">
+    <div class="p-3">
+        <div class="col-12 d-flex justify-content-center py-3">
+            <h1>سوالات متد اول</h1>
+        </div>
+        <hr>
+        <div class="col-12 d-flex flex-wrap justify-content-center mt-5" onclick="showAnswers(1)">
+            <div class="col-3 d-flex justify-content-center" style="align-items: center;">
+                <span style="font-size: 50px; font-weight: 100;">+</span>
+            </div>
+            <div class="col-9 d-flex" style="align-items: center;">
+                <p>شرایط لازم جهت دریافت اعتبار از بالون چیست؟</p>
+            </div>
+            <div class="col-12 px-5" id="aw-1" style="height: 0px; overflow: hidden;">
+                <ul class="answer-list">
+                    <li> افراد ۱۸ سال به بالا و زیر ۷۰ سال</li>
+                    <li> رتبه‌ی اعتباری A یا B یا بدون رتبه‌ی اعتباری</li>
+                    <li> عدم وجود چک برگشتی</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-12 d-flex border-top flex-wrap justify-content-center" onclick="showAnswers(2)">
+            <div class="col-3 d-flex justify-content-center">
+                <span style="font-size: 50px; font-weight: 100;">+</span>
+            </div>
+            <div class="col-9 d-flex" style="align-items: center;">
+                <p>بعد از واریز اعتبار، آیا محدودیت زمانی برای استفاده از آن وجود دارد یا خیر؟</p>
+            </div>
+            <div class="col-12 px-5" id="aw-2" style="height: 0px; overflow: hidden;">
+                <ul class="answer-list">
+                    <li> افراد ۱۸ سال به بالا و زیر ۷۰ سال</li>
+                    <li> رتبه‌ی اعتباری A یا B یا بدون رتبه‌ی اعتباری</li>
+                    <li> عدم وجود چک برگشتی</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="col-12 d-flex border-top flex-wrap justify-content-center" onclick="showAnswers(3)">
+            <div class="col-3 d-flex justify-content-center" style="align-items: center;">
+                <span style="font-size: 50px; font-weight: 100;">+</span>
+            </div>
+            <div class="col-9 d-flex" style="align-items: center;">
+                <p>در وام خرید کالا می‌توانم فروشگاه خود را تغییر دهم؟</p>
+            </div>
+            <div class="col-12 px-5" id="aw-3" style="height: 0px; overflow: hidden;">
+                <ul class="answer-list">
+                    <li> افراد ۱۸ سال به بالا و زیر ۷۰ سال</li>
+                    <li> رتبه‌ی اعتباری A یا B یا بدون رتبه‌ی اعتباری</li>
+                    <li> عدم وجود چک برگشتی</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+

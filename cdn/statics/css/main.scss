@@ -1,0 +1,171 @@
+
+body {
+    background-color: #E9E2F3;
+    direction: rtl;
+    color: #191308;
+}
+
+* {
+    font-family: 'IRANYekan';
+}
+
+h1 {
+    font-size: 35px;
+    font-weight: 800;
+}
+
+h2 { font-size: 28px; font-weight: 800;}
+
+h3 { font-size: 23px; font-weight: 800; }
+
+p { font-size: 18px }
+
+/* styles */
+
+.header {
+    width: 100%;
+}
+
+.logo-wrapper {
+    padding: 26px 78px !important;
+}
+
+.logo {
+    font-size: 45px;
+    font-weight: 700;
+}
+
+// @media screen and (min-width: 1024px) {
+//     body > section > div:nth-child(1) > div > div:nth-child(2) > div > img {
+//         position: absolute;
+//         left: 0;
+//     }
+// }
+
+
+.calculator-wrapper {
+    background-color: #191308;
+    color: #D6F5FF;
+    border-radius: 21px;
+}
+
+.btn {
+    box-shadow: 0px 4px 13px rgba(0, 0, 0, 0.2) !important;
+    border-radius: 18px !important;
+    border: none !important;
+}
+
+.btn-primary {
+    background-color: #76A787 !important;
+}
+
+.btn:active {
+    transition: all 0.2s;
+    transform: scale(0.8);
+    box-shadow: 0px 0px 0px #040723 !important;
+}
+
+.atrr-container {
+    background-color: #ADE3F4;
+    color: #040723;
+    
+    .text-wrapper {
+        position: relative;
+        top: 20px;
+    }
+
+    
+}
+
+body > section > div.w-100.atrr-container > div > div > div > div:nth-child(1) > div > div.text-center.text-wrapper {
+    top: 42px !important;
+}
+
+.m-auto { margin: auto; }
+
+.icon-wrapper-in > img.m-auto {
+    position: relative;
+    top: -2px;
+    right: -72px;
+}
+
+.item-container {
+    display: flex;
+    position: relative;
+    z-index: -1;
+    color: #C9C9C9;
+    background-color: #191308;
+}
+
+.box-wrapper {
+    width: 100%;
+    border-radius: 30px;
+    background-color: #BFBFBF;
+}
+
+.form-control {
+    padding: 13px !important;
+    box-shadow: 0px 4px 13px rgba(0, 0, 0, 0.2) !important;
+    border-radius: 18px !important;
+    background-color: #FDF4E6 !important;
+}
+
+.btn-success {
+    background-color: #7695A7 !important;
+}
+
+.form-control:focus {
+    transition: all 0.2s !important;
+    box-shadow: 0px 0px 0px #040723 !important;
+    outline: none !important;
+}
+
+input:focus {
+    outline: none !important;
+}
+
+.btn-danger {
+    background-color: #f06767 !important;
+}
+
+.auth {
+    position: absolute;
+    top: 33px;
+    left: 111px;
+}
+
+.text-cta:before {
+    top: 0;
+    right: 50%;
+    position: absolute;
+    content: "";
+    width: var(--width);
+    height: var(--height);
+    background-color: var(--color);
+}
+
+.text-cta:after{
+    top: 0;
+    right: 50%;
+    position: absolute;
+    content: "";
+    width: var(--width);
+    height: var(--height);
+    background-color: var(--color);
+}
+
+.text-cta {
+    --tw-text-opacity: 1;
+    color: rgba(var(--color-cta),var(--tw-text-opacity));
+}
+
+.answer-list {
+    @media screen and (min-width: 1024px) {
+        position: relative;
+        right: 250px
+    }
+}
+
+p {
+    margin: 0 !important;
+}

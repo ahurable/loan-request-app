@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}پروفایل کاربر{% endblock title %}
+{% block style %}
+.avatar-container {
+    width: max-content;
+    height: max-content;
+    display: block;
+    float: left;
+}
+.heading-container {
+    align-items: center !important;
+}
+.profile-table {
+    width: 100%;
+}
+.profile-table td {
+    width: 50%;
+    border-bottom: solid #000 1px;
+    padding: 1rem;
+    padding-top: 2rem;
+    font-size: 18px;
+}
+{% endblock style %}
+
+
+{% block content %}
+    <div class="container-lg container-fluid px-5">
+        <div class="p-5">
+            <div class="d-flex">
+                <div class="col-6 d-flex heading-container">
+                    <h1>پروفایل</h1>
+                </div>
+                <div class="col-6">
+                    <span class="avatar-container">
+                        <img src="/media/site/avatar.svg" style="width: inherit"/>
+                    </span>
+                </div>
+            </div>
+            <div>
+                <table class="profile-table mt-5">
+                    <tbody>
+                        <tr>
+                            <td>نام</td>
+                            <td> اهورا</td>
+                        </tr>
+                        <tr>
+                            <td>نام خانوادگی</td>
+                            <td> عالیپور هفشجانی</td>
+                        </tr>
+                        <tr>
+                            <td>شماره ملی</td>
+                            <td>4612345678</td>
+                        </tr>
+                        <tr>
+                            <td>شماره موبایل</td>
+                            <td> 09903392645</td>
+                        </tr>
+                        <tr>
+                            <td>آدرس ایمیل</td>
+                            <td> ahura.alipur19@yahoo.com</td>
+                        </tr>
+                        <tr>
+                            <td>آدرس محل سکونت</td>
+                            <td>مشاهده</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

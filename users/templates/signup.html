@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}ثبت نام در سایت{% endblock title %}
+
+{% block style %}
+#form-input-wrapper-1 {
+    display: flex ;
+}
+
+#form-input-wrapper-2 {
+    display: none ;
+}
+
+#form-input-wrapper-3 {
+    display: none ;
+}
+
+#submit-form {
+    display: none;
+}
+
+#back-button {
+    display: none;
+}
+
+#doc_input, #fish_input, #card_wrapper {
+    display: none;
+}
+{% endblock style %}
+
+{% block content %}
+
+<div class="container-lg">
+    <div class="p-5 d-lg-flex">
+        <div class="form-wrapper col-lg-6 col-12">
+            <div class="heading-wrapper text-center w-100">
+                <h1>ثبت نام</h1>
+            </div>
+            <div class="form-container mt-5">
+                <form class="d-flex justify-content-center flex-wrap pe-5" method="post">
+                    {% csrf_token %}
+                    <div id="form-input-wrapper-1" class="w-100 justify-content-center flex-wrap">
+                        {{ form.phone_number }}
+                        {{ form.password }}
+                    </div>
+                    <div class=" d-grid gap-2 w-75 mt-5">
+                        <button type="submit" id="continue-button" class="btn btn-primary py-3">ثبت نام</button>
+                     </div>
+                </form>
+            </div>
+        </div>
+        <div class="image-wrapper col-lg-6 col-12 d-lg-flex d-none justify-content-center">
+            <div style="position: absolute; top: 15rem;"><img src="/media/site/paven.svg" width="133" alt=""></div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+

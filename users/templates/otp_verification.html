@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}تایید شماره تلفن{% endblock title %}
+
+{% block content %}
+<div class="container-lg container-fluid">
+    <div class="p-5">
+        <div class="d-flex flex-wrap justify-content-center">
+            <form method="post" class="w-50">
+                {% csrf_token %}
+                <input type="text" name="otp_code" class="w-100 form-control text-center" placeholder="کد دریافتی خود را وارد کنید">
+                <div class="d-grid gap-2 w-100 mt-5">
+                    <button type="submit" class="btn btn-success p-3 mt-2">تایید شماره</button>
+                </div>
+            </form>
+            <div class="w-100 d-flex justify-content-center">
+                <div class="w-50">
+                    <div class="d-grid gap-2 w-100 mt-2">
+                        <button class="btn btn-primary p-3" onclick="sendotp({{phone}})">ارسال کد</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
