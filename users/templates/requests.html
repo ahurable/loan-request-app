@@ -5,7 +5,7 @@
 {% endblock title %}    
 
 {% block content %}
-  <div class="container-lg container-fluid">
+  <div class="container-lg">
     <div class="p-3">
         <table class="w-100">
             <tr>
@@ -13,21 +13,24 @@
                 <td>نام خانوادگی</td>
                 <td>شماره همراه</td>
                 <td>آدرس ایمیل</td>
-                <td></td>
+                <td><a href="{% url 'export-csv-url' %}" class="btn btn-success" onclick="location.reload()">خروجی csv</a></td>
             </tr>
             {% for profile in profiles %}
+                {% if profile.user.is_admin %}
+                {% else %}
                 <tr>
                     <td class="bordered">{{ profile.first_name }}</td>
                     <td class="bordered">{{ profile.last_name }}</td>
                     <td class="bordered">{{ profile.user.phone_number }}</td>
                     <td class="bordered">{{ profile.email_address }}</td>
                     <td class="bordered">
-                        <button class="btn btn-primary">
+                        <a class="btn btn-primary" href="{% url 'user_detail_url' profile.user.id %}">
                             مشاهده
-                        </button>
+                        </a>
                         <a href="{% url 'delete_user_url' profile.user.id %}" class="btn btn-danger">حذف</a>
                     </td>
                 </tr>
+                {% endif %}
             {% endfor %}
         </table>
     </div>

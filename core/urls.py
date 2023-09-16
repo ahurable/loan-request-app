@@ -33,7 +33,10 @@ urlpatterns = [
     path('verify-phone/', OtpView.as_view(), name='otp_url'),
     path('retotp/<str:phone>', ret_otp),
     path('manage-requests/', manage_requests, name="manage_requests_url"),
-    path('delete-user/<int:id>', delete_user, name="delete_user_url")
+    path('delete-user/<int:id>', delete_user, name="delete_user_url"),
+    path('export-csv/', export_csv, name="export-csv-url"),
+    path('user-detail/<int:id>/', user_detail, name="user_detail_url"),
+    path('handle-message', handle_message, name="handle_message_url")
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

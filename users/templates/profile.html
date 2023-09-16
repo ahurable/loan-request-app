@@ -14,18 +14,12 @@
 .profile-table {
     width: 100%;
 }
-.profile-table td {
-    width: 50%;
-    border-bottom: solid #000 1px;
-    padding: 1rem;
-    padding-top: 2rem;
-    font-size: 18px;
-}
+
 {% endblock style %}
 
 
 {% block content %}
-    <div class="container-lg container-fluid px-5">
+    <div class="container-lg px-5">
         <div class="p-5">
             <div class="d-flex">
                 <div class="col-6 d-flex heading-container">
@@ -33,7 +27,11 @@
                 </div>
                 <div class="col-6">
                     <span class="avatar-container">
+                    {% if user_.profile.profile_pic %}
+                        <img src="{{ user_.profile.profile_pic.url }}" style="width: 118px;height: 118px;" class="rounded-circle"/>
+                    {% else %} 
                         <img src="/media/site/avatar.svg" style="width: inherit"/>
+                    {% endif %}
                     </span>
                 </div>
             </div>
@@ -42,27 +40,65 @@
                     <tbody>
                         <tr>
                             <td>نام</td>
-                            <td> اهورا</td>
+                            <td>{{ user_.profile.first_name }}</td>
                         </tr>
                         <tr>
                             <td>نام خانوادگی</td>
-                            <td> عالیپور هفشجانی</td>
+                            <td>{{ user_.profile.last_name }}</td>
                         </tr>
                         <tr>
                             <td>شماره ملی</td>
-                            <td>4612345678</td>
+                            <td>{{ user_.profile.national_code }}</td>
                         </tr>
                         <tr>
                             <td>شماره موبایل</td>
-                            <td> 09903392645</td>
+                            <td>{{ user_.phone_number }}</td>
                         </tr>
                         <tr>
                             <td>آدرس ایمیل</td>
-                            <td> ahura.alipur19@yahoo.com</td>
+                            <td>{{ user_.profile.email_address }}</td>
                         </tr>
                         <tr>
-                            <td>آدرس محل سکونت</td>
-                            <td>مشاهده</td>
+                            <td>{{ user_.profile.address }}</td>
+                            <td>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    مشاهده درخواست و اطلاعات پرداخت
+                                  </button>
+                                  
+                                  <!-- Modal -->
+                                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h1 class="modal-title fs-5" id="exampleModalLabel">مشاهده درخواست کاربر</h1>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                          <table class="w-100">
+                                            <tr>
+                                                <td>شماره کارت</td>
+                                                <td>{{ user_.payment.card }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>شماره شبا</td>
+                                                <td>{{ user_.payment.shaba }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>مقدار وام درخواستی</td>
+                                                <td>{{ user_.payment.amount }}</td>
+                                            </tr>
+                                          </table>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">بستن</button>
+                                          {% if is_admin %}
+                                          <button type="button" class="btn btn-primary">تایید درخواست</button>
+                                          {% endif %}
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

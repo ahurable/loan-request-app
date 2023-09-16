@@ -8,18 +8,19 @@ body {
 * {
     font-family: 'IRANYekan';
 }
-
-h1 {
-    font-size: 35px;
-    font-weight: 800;
+@media screen and (min-width: 998px) {
+    h1 {
+        font-size: 35px;
+        font-weight: 800;
+    }
+    
+    h2 { font-size: 28px; font-weight: 800;}
+    
+    h3 { font-size: 25px; font-weight: 800; }
+    
+    p { font-size: 18px }
+    
 }
-
-h2 { font-size: 28px; font-weight: 800;}
-
-h3 { font-size: 23px; font-weight: 800; }
-
-p { font-size: 18px }
-
 /* styles */
 
 .header {
@@ -134,6 +135,18 @@ input:focus {
     left: 111px;
 }
 
+.menu-wrapper {
+    position: absolute;
+    top: 33px;
+    left: 400px
+    
+}
+.menu-wrapper a {
+    font-size: 23px;
+    text-decoration: none;
+    color: #191308;
+    padding-left: 2rem;
+}
 .text-cta:before {
     top: 0;
     right: 50%;
@@ -168,4 +181,22 @@ input:focus {
 
 p {
     margin: 0 !important;
+}
+
+.steps-holder {
+    position: absolute;
+    width: 242px;
+    height: 400px;
+    top: 220px;
+}
+
+.steps-holder .px-4 {
+    font-size: 23px;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    color: gray;
+}
+
+.steps-holder .px-4:nth-child(1) {
+    color: black;
 }

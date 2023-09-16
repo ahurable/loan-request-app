@@ -30,7 +30,7 @@
 {% endblock style %}
 {% block content %}
 
-<div class="container-lg container-fluid" style="height: 90%;">
+<div class="container-lg" style="height: 90%;">
     <div class="d-lg-flex justfy-content-lg-around">
         <div class="col-lg-6 col-12 d-lg-flex" style="align-items: center;">
             <div class="p-5 text-center">
@@ -47,7 +47,7 @@
     </div>
 </div>
 
-<div class="w-100 atrr-container ">
+<div class="w-100 atrr-container " id="sec-1">
     <div class="container-lg">
         <div class="py-5">
             <div class="d-flex justify-content-around flex-wrap">
@@ -82,7 +82,7 @@
     </div>
 </div>
 
-<div class="container-lg container-fluid mt-5">
+<div class="container-lg mt-5" id="sec-2">
     <div class="p-5">
         <div class="calculator-wrapper d-lg-flex justify-content-between w-100">
             <div class="col-lg-6 col-12">
@@ -101,9 +101,12 @@
                         <h2>حساب کن</h2>
                     </div>
                     <div class="pt-2 range-wrapper">
-                            <input type="range" class="w-100" min="0" max="1000000" value="0" id="range_input" "/>
+                            <input type="range" class="w-100" min="0" max="20" value="0" id="range_input" "/>
                             <br>
-                            <span style="font-size: 23px" id="range_value">0</span><span style="font-size: 23px" class="mx-2">تومان</span>
+                            <div>
+                                <span style="font-size: 23px" id="range_value">0</span><span style="font-size: 23px" class="mx-2">تومان + 10 درصد پورسانت = </span>
+                                <span style="font-size: 23px" id="final_value">0</span><span style="font-size: 23px" class="mx-2">تومان</span>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -113,7 +116,7 @@
 </div>
 
 
-<div class="mt-5 w-100">
+<div class="mt-5 w-100" id='sec-3'>
     <div class="container">
         <div class="p-5">
             <h1>چطور اعتباری خرید کنیم؟</h1>
@@ -167,7 +170,7 @@
     </div>
 </div>
 
-<div class="mt-5 container-lg">
+<div class="mt-5 container-lg" id="sec-4">
     <div class="d-lg-flex">
         <div class="col-lg-6 col-12 p-3">
             <div class="box-wrapper p-5">
@@ -253,7 +256,7 @@
     </div>
 </div>
 
-<div class="container-lg container-fluid my-5 border bg-light">
+<div class="container-lg my-5 border bg-light" id="sec-5">
     <div class="p-3">
         <div class="col-12 d-flex justify-content-center py-3">
             <h1>سوالات متد اول</h1>

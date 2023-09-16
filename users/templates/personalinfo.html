@@ -33,7 +33,7 @@
                 <form class="d-flex justify-content-center flex-wrap pe-5" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div id="form-input-wrapper-1" class="w-100 justify-content-center flex-wrap">
-                        <div class="heading-wrapper text-center w-100">
+                        <div class="heading-wrapper d-lg-none text-center w-100">
                             <h2>اطلاعات پروفایل</h2>
                         </div>
                         {{ profile_form.first_name }}
@@ -41,7 +41,7 @@
                         {{ profile_form.national_code}}
                     </div>
                     <div id="form-input-wrapper-2" class="w-100 justify-content-center flex-wrap" >
-                        <div class="heading-wrapper text-center w-100">
+                        <div class="heading-wrapper d-lg-none text-center w-100">
                             <h2>تکمیلی</h2>
                         </div>
                         {{ profile_form.email_address }}
@@ -49,8 +49,8 @@
                         <label for="id_profile_pic">عکس پروفایل خود را بارگذاری کنید</label>
                         {{ profile_form.profile_pic }}
                     </div>
-                    <div id="form-input-wrapper-3" class="w-100 justify-content-center flex-wrap">
-                        <div class="heading-wrapper text-center w-100">
+                    {% comment %} <div id="form-input-wrapper-3" class="w-100 justify-content-center flex-wrap">
+                        <div class="heading-wrapper d-lg-none text-center w-100">
                             <h2>ضمانت</h2>
                         </div>
                         <select class="form-control px-4 py-2 mt-4 w-75" id="typePays" onchange="typeOfPays(this)">
@@ -67,16 +67,16 @@
                             <input type="file" class="d-none"/>
                             بارگذاری تصویر فیش حقوقی یا پروانه کسب
                         </label>
-                    </div>
-                    <div class="w-100 justify-content-center flex-wrap" id="form-input-wrapper-4">
-                        <div class="heading-wrapper">
+                    </div> {% endcomment %}
+                    <div class="w-100 justify-content-center flex-wrap" id="form-input-wrapper-3">
+                        <div class="heading-wrapper d-lg-none">
                             <h2>اطلاعات کارت</h2>
                         </div>
                         {{ payment_form.shaba }}
                         {{ payment_form.card }}
                     </div>
-                    <div class="w-100 justify-content-center flex-wrap" id="form-input-wrapper-5">
-                        <div class="heading-wrapper">
+                    <div class="w-100 justify-content-center flex-wrap" id="form-input-wrapper-4">
+                        <div class="heading-wrapper d-lg-none">
                             <h2>مقدار وام درخواستی</h2>
                         </div>
                         {{ payment_form.amount }}
@@ -92,6 +92,15 @@
         <div class="image-wrapper col-lg-6 col-12 d-lg-flex d-none justify-content-center">
             <div style="position: absolute; top: 15rem;"><img src="/media/site/paven.svg" width="133" alt=""></div>
         </div>
+    </div>
+</div>
+
+<div class="d-lg-block d-none steps-holder">
+    <div class="p-3">
+        <div class="w-100 py-2 px-4">درخواست وام</div>
+        <div class="w-100 py-2 px-4">اطلاعات هویتی</div>
+        <div class="w-100 py-2 px-4">اعتبارسنجی</div>
+        <div class="w-100 py-2 px-4">پرداخت وام</div>
     </div>
 </div>
 

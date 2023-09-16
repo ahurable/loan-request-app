@@ -1,13 +1,15 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.contrib.messages import success, error
 from .forms import UserForm, ProfileForm, PaymentForm, ProfileModel
-from .models import User, PaymentModel
+from .models import User, PaymentModel, Messages
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.contrib.auth import authenticate, login, logout
+from django.http.response import HttpResponse, JsonResponse
 from .utils import generate_otp
-from .decorators import is_admin, is_get, login_required
+from .decorators import is_admin, is_get, login_required, is_post
+import csv
 
 # Create your views here.
 
@@ -31,7 +33,7 @@ class SignupView(View):
         else:
             print('something went wrong')
         success(request, "ثبت شما با موفقیت انجام شد جهت ادامه شماره همراه خود را از طریق کد پیامکی تایید کنید.", extra_tags='success')
-        return redirect('home_url')
+        return redirect('login_url')
 
 
 class LoginView(View):
@@ -52,9 +54,10 @@ class LoginView(View):
             if user:
                 login(request, user)
                 success(request, 'شما با موفقیت وارد سیستم شدید!', extra_tags='success')
-                return redirect('home_url')
+                return redirect('otp_url')
             else:
-                print("Something went wrong in authenticate process")
+                error(request, 'شماره همراه یا رمز عبور اشتباه می باشد', extra_tags="danger")
+                return redirect('login_url')
         error(request, 'برای ورود به حساب کاربری هر دو فیلد را باید پر کنید', extra_tags="danger")
         return redirect('login_url')
 
@@ -65,12 +68,18 @@ def logout_view(request):
 
 class ProfileView(View):
     def get(self, request):
-        return render(request, 'profile.html')
+        if not request.user.is_authenticated:
+            error(request, "شما باید برای دسترسی به این صفحه ابتدا وارد حساب کاربری خود شوید.", extra_tags="danger")
+            return redirect('home_url')
+        user = User.objects.get(id=request.user.id)
+        return render(request, 'profile.html', {'user_':user})
     
 
 class PersonalInfoView(View):
 
     def get(self, request):
+        if request.user.profile.first_name != "":
+            return redirect('profile_url')
         profile_form = ProfileForm()
         payment_form = PaymentForm()
         # print(request.user)
@@ -105,6 +114,8 @@ class PersonalInfoView(View):
     
 class OtpView(View):
     def get(self, request):
+        if request.user.is_verified:
+            return redirect('personal_info_url')
         return render(request, 'otp_verification.html', {'phone': request.user.phone_number})
     
     def post(self, request):
@@ -114,7 +125,7 @@ class OtpView(View):
             user.is_verified = True
             user.save()
             success(request, "تایید شماره شما با موفقیت انجام شد. هم اکنون جهت درخواست وام میتوانید اطلاعات پروفایل خود را تکمیل کنید", extra_tags="success")
-            return redirect("home_url")
+            return redirect("personal_info_url")
         else:
             error(request, "در روند تایید شماره همراه شما مشکلی به وجود آمده دوباره تلاش کنید", extra_tags="danger")
             return redirect('otp_url')
@@ -138,3 +149,33 @@ def delete_user(request, id):
     user.delete()
     success(request, 'کاربر با موفقیت حذف شد', extra_tags='danger')
     return redirect(request.META['HTTP_REFERER'])
+
+def export_csv(request):
+    users = User.objects.all()
+    data = [
+        ['نام', 'نام خانوادگی', 'آدرس ایمیل', 'شماره همراه', 'آدرس محل سکونت', 'شماره کارت', 'شماره شبا', 'مقدار درخواستی'],
+    ] + [[_user.profile.first_name, _user.profile.last_name, _user.profile.email_address, _user.phone_number.national_number, _user.profile.address, _user.payment.card, _user.payment.shaba, _user.payment.amount] for _user in users]
+    print(data)
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="exported_data.csv"'
+    writer = csv.writer(response)
+    for row in data:
+        writer.writerow(row)
+    success(request, 'خروجی فایل csv با موفقیت ذخیره و دانلود شد.', extra_tags='success')
+    return response
+
+@login_required
+@is_admin
+def user_detail(request, id):
+    user = get_object_or_404(User, id=id)
+    return render(request, 'profile.html', {'user_':user, 'is_admin':True})
+
+@is_post
+def handle_message(request):
+    try:
+        Messages.objects.create(email=request.POST['email'], description = request.POST['description'])
+        success(request, "پیام شما با موفقیت در سامانه ثبت شد به زودی با شما ارتباط میگیریم.", extra_tags="success")
+        return redirect(request.META['HTTP_REFERER'])
+    except:
+        error(request,"خطا در ارسال پیام.",extra_tags="danger")
+        return redirect(request.META['HTTP_REFERER'])

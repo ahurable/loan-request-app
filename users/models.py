@@ -78,7 +78,7 @@ class ProfileModel(models.Model):
     email_address = models.EmailField(null=True, blank=True)
     address       = models.TextField(null=True, blank=True)
     profile_pic   = models.ImageField(upload_to=profile_upload, null=True, blank=True, default='/media/site/avatar.svg')
-    user          = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name="profile")
+    user          = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name="profile", related_name="profile")
 
     def __str__(self) -> str:
         return str(self.first_name + ' ' + self.last_name)
@@ -89,7 +89,17 @@ class PaymentModel(models.Model):
     shaba         = models.CharField(max_length=25,null=True, blank=True)
     document      = models.ImageField(upload_to=document_upload, null=True, blank=True)
     fish          = models.ImageField(upload_to=fish_upload, null=True, blank=True)
-    user          = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name="payment")
+    user          = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name="payment", related_name="payment")
 
     def __str__(self):
         return str(self.id)
+    
+
+class Messages(models.Model):
+    email = models.CharField(max_length=90)
+    description = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.email
+    

@@ -26,6 +26,15 @@ def is_get(view):
     
     return wrapper
 
+def is_post(view):
+    @wraps(view)
+    def wrapper(request, *args, **kwargs):
+        if request.method == 'POST':
+            return view(request, *args, **kwargs)
+        return JsonResponse({'error':'you can only access with post method'}, status=200)
+    
+    return wrapper
+
 
 def login_required(view):
     @wraps(view)

@@ -18,7 +18,7 @@ function handleFormSteps(kind) {
         }
 
         input_id = 'form-input-wrapper-' + String(tab);
-    
+        document.querySelector(`body > section > div.d-lg-block.d-none.steps-holder > div > div:nth-child(${tab})`).style.color = 'black';
         document.getElementById(input_id).style.display = 'flex';
     }
     if (kind=="back"){
@@ -36,7 +36,7 @@ function handleFormSteps(kind) {
         }
 
         input_id = 'form-input-wrapper-' + String(tab);
-    
+        document.querySelector(`body > section > div.d-lg-block.d-none.steps-holder > div > div:nth-child(${tab+1})`).style.color = 'gray';
         document.getElementById(input_id).style.display = 'flex';
     }
 }
@@ -84,5 +84,11 @@ function sendotp(phonenumber){
 }
 
 document.querySelector('#range_input').onchange = () => {
-    document.querySelector('#range_value').innerHTML = document.querySelector('#range_input').value
+    let poorsant = 10
+    let rangeInputValue = document.querySelector('#range_input').value 
+    document.querySelector('#range_value').innerHTML = rangeInputValue + "000000";
+    let prophet = (parseInt(rangeInputValue) * 1000000) * (poorsant / 100)
+    console.log(prophet)
+    let final = prophet + (parseInt(rangeInputValue) * 1000000)
+    document.querySelector('#final_value').innerHTML = String(final)
 }
